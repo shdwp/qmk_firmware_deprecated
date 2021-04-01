@@ -1,4 +1,4 @@
-#include QMK_KEYBOARD_H
+#include "ergodone.h"
 #include "version.h"
 
 enum custom_keycodes {
@@ -8,20 +8,19 @@ enum custom_keycodes {
   RGB_SLD
 };
 
-
 #define BASE 0
 #define QWER 1
-#define PROG 2
-#define FN 3
-#define WIND 4
-#define TABBING 5
+#define GAME 2
+#define INTL 3
 
-#define UKR_1 LALT(LCTL(KC_RBRACKET))
-#define UKR_2 LALT(LCTL(KC_R))
-#define UKR_3 LALT(LCTL(KC_QUOTE))
-#define UKR_4 LALT(LCTL(KC_GRAVE))
+#define PROG 10
+#define TABBING 11
+#define FN 12
+#define WIND 13
 
-#define PROG_1 LT(PROG, KC_ESC)
+#define INTL_MOD LALT(KC_LCTL)
+
+#define PROG_1 MO(PROG)
 #define M_CHLG LSFT(KC_LCTRL)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -32,26 +31,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [BASE] = LAYOUT_ergodox(
         // left hand
-        KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                   _______,
-        KC_DQUO,        KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,                   M_CHLG,
-        KC_TAB,         KC_A,           KC_R,           KC_S,           KC_T,           KC_G,
-        LSFT_T(KC_ESC), KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,                   KC_ENT,
-                                        _______,        UKR_1,          UKR_2,          PROG_1,                 LM(TABBING, MOD_LALT),
+        _______,        KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                   _______,
+        KC_TAB,         KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,                   KC_LGUI,
+        KC_ENT,         KC_A,           KC_R,           KC_S,           KC_T,           KC_G,
+        LSFT_T(KC_ESC), KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,                   M_CHLG,
+                                        KC_GRAVE,       KC_RBRACKET,    _______,        LM(TABBING, MOD_LALT),  LT(FN, KC_SPACE),
+
+                                                                                                    TG(GAME),               TG(QWER),
+                                                                                                                            _______,
+                                                                            LM(TABBING, MOD_LCTL),  PROG_1,                 KC_DEL,
+
+        // right hand
+        _______,        KC_6,           KC_7,               KC_8,           KC_9,           KC_0,           KC_BSLASH,
+        _______,        KC_J,           KC_L,               KC_U,           KC_Y,           KC_SCOLON,      KC_BSPACE,
+                        KC_M,           KC_N,               KC_E,           KC_I,           KC_O,           KC_QUOTE,
+        KC_LGUI,        KC_K,           KC_H,               KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,
+                                        PROG_1,             INTL_MOD,       _______,        KC_BSLASH,      _______,
 
                                                                                                     _______,                _______,
                                                                                                                             _______,
-                                                                            LM(TABBING, MOD_LCTL),  LSFT_T(KC_ESC),         KC_DEL,
-
-        // right hand
-        _______,        KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSLASH,
-        KC_LGUI,        KC_J,           KC_L,           KC_U,           KC_Y,           KC_SCOLON,      KC_BSPACE,
-                        KC_M,           KC_N,           KC_E,           KC_I,           KC_O,           KC_QUOTE,
-        KC_ENT,         KC_K,           KC_H,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,
-                                        PROG_1,         _______,        UKR_3,          UKR_4,          TG(QWER),
-
-                                                                                        _______,            _______,
-                                                                                                            _______,
-                                                                        _______,        LT(WIND, KC_ENT),   LT(FN, KC_SPACE)
+                                                                            _______,                LT(WIND, KC_ESC),       KC_LSFT
     ),
 
     /**
@@ -61,15 +60,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [QWER] = LAYOUT_ergodox(
         // left hand
-        _______,        _______,        _______,        _______,        _______,        _______,        _______,
-        _______,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           _______,
-        _______,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,
-        _______,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           _______,
-                                        _______,        _______,        _______,        _______,        _______,
+        KC_ESC,        _______,        _______,        _______,        _______,        _______,        _______,
+        KC_TAB,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           _______,
+        KC_LCTRL,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,
+        KC_LSHIFT,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           _______,
+                                        _______,        _______,        _______,        _______,        KC_LALT,
 
                                                                                         _______,        _______,
                                                                                                         _______,
-                                                                       _______,         _______,        _______,
+                                                                       KC_SPACE,         KC_ENT,        _______,
 
         // right hand
         _______,        _______,        _______,        _______,        _______,        _______,        _______,
@@ -93,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,        _______,        _______,        _______,        _______,        _______,        _______,
         _______,        KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         _______,        _______,
         _______,        KC_LPRN,        KC_RPRN,        KC_LCBR,        KC_RCBR,        KC_PERC,
-        _______,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           _______,
+        _______,        _______,        _______,        KC_DQT,         KC_UNDS,        _______,        _______,
                                         _______,        _______,        _______,        _______,        _______,
 
                                                                                         _______,        _______,
@@ -104,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,        _______,        _______,        _______,        _______,        _______,        _______,
         _______,        LSFT(KC_BSLASH),KC_AMPR,        KC_ASTR,        KC_LABK,        KC_RABK,        _______,
                         KC_CIRC,        KC_SCOLON,      KC_EQUAL,       KC_LBRACKET,    KC_RBRACKET,    _______,
-        _______,        _______,        KC_UNDS,        KC_PLUS,        _______,        _______,        _______,
+        _______,        _______,        KC_COLN,        KC_PLUS,        KC_MINUS,       _______,        _______,
                                         _______,        _______,        _______,        _______,        _______,
 
                                                                                         _______,        _______,
@@ -148,11 +147,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [WIND] = LAYOUT_ergodox(
         // left hand
-        _______,        KC_F1,          KC_F2,          KC_F3,            KC_F4,          KC_F5,          _______,
-        _______,        LALT(KC_F4),    _______,        LGUI(KC_UP),      _______,        _______,        _______,
-        _______,        _______,        LGUI(KC_LEFT),  LGUI(KC_DOWN),    LGUI(KC_RIGHT), _______,
-        _______,        _______,        _______,        LGUI(LSFT(KC_S)), _______,        _______,        _______,
-                                        _______,        _______,          _______,        _______,        _______,
+        _______,        KC_F1,          KC_F2,          KC_F3,              KC_F4,          KC_F5,          _______,
+        _______,        LALT(KC_F4),    _______,        LGUI(KC_UP),        _______,        _______,        _______,
+        _______,        _______,        LGUI(KC_LEFT),  LGUI(KC_DOWN),      LGUI(KC_RIGHT), _______,
+        _______,        _______,        _______,        LGUI(LSFT(KC_S)),   _______,        _______,        _______,
+                                        _______,        _______,            _______,        _______,        _______,
 
                                                                                           _______,        _______,
                                                                                                           _______,
@@ -181,6 +180,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,        _______,        _______,        _______,        _______,        _______,        _______,
         _______,        _______,        _______,        _______,        _______,        _______,
         KC_LSHIFT,      _______,        _______,        _______,        _______,        _______,        _______,
+                                        _______,        _______,        _______,        _______,        _______,
+
+                                                                                        _______,        _______,
+                                                                                                        _______,
+                                                                        _______,        _______,        _______,
+
+        // right hand
+        _______,        _______,        _______,        _______,         _______,       _______,        _______,
+        _______,        _______,        _______,        _______,         _______,       _______,        _______,
+                        _______,        _______,        _______,         _______,       _______,        _______,
+        _______,        _______,        _______,        _______,         _______,       _______,        _______,
+                                        _______,        _______,         _______,       _______,        _______,
+
+                                                                                        _______,        _______,
+                                                                                                        _______,
+                                                                        _______,        _______,        _______
+    ),
+
+    [GAME] = LAYOUT_ergodox(
+        // left hand
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,        _______,        _______,        _______,        _______,
+        _______,        _______,        _______,        _______,        _______,        _______,        _______,
                                         _______,        _______,        _______,        _______,        _______,
 
                                                                                         _______,        _______,
@@ -264,7 +287,7 @@ void matrix_scan_user(void) {
     uint8_t layer = biton32(layer_state);
     ergodox_board_led_off();
 
-    if ((layer & 1) != 0) {
+    if ((layer & GAME) != 0) {
         ergodox_board_led_on();
     }
 };
