@@ -15,10 +15,10 @@ enum custom_keycodes {
 #define FN 12
 #define WIND 13
 
-#define INTL_MOD LALT(KC_LCTL)
+#define INTL_MOD LALT(KC_LSFT)
 
 #define PROG_1 MO(PROG)
-#define M_CHLG LSFT(KC_LCTRL)
+#define M_CHLG LALT(KC_LSFT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**
@@ -28,26 +28,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [BASE] = LAYOUT_ergodox(
         // left hand
-        KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                   KC_BSLASH,
+        KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                   KC_BSPC,
         KC_TAB,         KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,                   M_CHLG,
         KC_ENT,         KC_A,           KC_R,           KC_S,           KC_T,           KC_G,
-        LSFT_T(KC_ESC), KC_Z,           KC_X,           KC_C,           KC_D,           LT(NUMBERS, KC_V),      KC_LGUI,
-                                        _______,        KC_RBRACKET,    _______,        LM(TABBING, MOD_LALT),  LT(FN, KC_SPACE),
+        KC_LSFT,        KC_Z,           KC_X,           KC_C,           KC_D,           LT(NUMBERS, KC_V),      KC_SPACE,
+                                        _______,        KC_RBRACKET,    MO(WIND),       LM(TABBING, MOD_LALT),  LT(FN, KC_SPACE),
 
-                                                                                                    KC_SPACE,               _______,
+                                                                                                    LT(WIND, KC_LGUI),      _______,
                                                                                                                             _______,
-                                                                            LCTL_T(KC_ESC),         MO(PROG),            KC_DEL,
+                                                                            LCTL_T(KC_ESC),         MO(PROG),               KC_DEL,
 
         // right hand
-        _______,        KC_6,           KC_7,               KC_8,           KC_9,           KC_0,           KC_BSLASH,
-        _______,        KC_J,           KC_L,               KC_U,           KC_Y,           KC_SCOLON,      KC_BSPACE,
-                        KC_M,           KC_N,               KC_E,           KC_I,           KC_O,           KC_QUOTE,
-        KC_LGUI,        LCA_T(KC_K),    KC_H,               KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,
-                                        MO(PROG),           INTL_MOD,       _______,        KC_BSLASH,      _______,
+        _______,            KC_6,           KC_7,               KC_8,           KC_9,           KC_0,           KC_BSLASH,
+        _______,            KC_J,           KC_L,               KC_U,           KC_Y,           KC_SCOLON,      KC_BSPACE,
+                            KC_M,           KC_N,               KC_E,           KC_I,           KC_O,           KC_QUOTE,
+        KC_LGUI,            LCA_T(KC_K),    KC_H,               KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,
+                                            MO(PROG),           INTL_MOD,       _______,        KC_BSLASH,      _______,
 
                                                                                                     TG(QWER),               MO(WIND),
                                                                                                                             _______,
-                                                                            _______,                MO(NUMBERS),            KC_LSFT
+                                                                            _______,                MO(PROG),               KC_LSFT
     ),
 
     /**
@@ -111,9 +111,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [PROG] = LAYOUT_ergodox(
         // left hand
         _______,        _______,        _______,        _______,        _______,        _______,        _______,
-        _______,        _______,        KC_LBRC,        KC_LCBR,        KC_LPRN,        _______,        _______,
-        _______,        KC_ASTR,        KC_UNDS,        KC_MINUS,       KC_PLUS,        KC_PERC,
-        _______,        _______,        _______,        KC_ASTR,        KC_LABK,        _______,        _______,
+        _______,        KC_LBRC,        KC_RBRC,        KC_LPRN,        KC_RPRN,        _______,        _______,
+        _______,        KC_UNDS,        KC_ASTR,        KC_MINUS,       KC_PLUS,        KC_PERC,
+        _______,        _______,        _______,        KC_HASH,        KC_DLR,         _______,        _______,
                                         _______,        _______,        _______,        _______,        _______,
 
                                                                                         _______,        _______,
@@ -122,9 +122,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         // right hand
         _______,        _______,        _______,        _______,        _______,        _______,        _______,
-        _______,        _______,        KC_RPRN,        KC_RCBR,        KC_RBRC,        _______,        _______,
-                        KC_CIRC,        KC_EQUAL,       KC_EXLM,        LSFT(KC_BSLASH),KC_AMPR,        _______,
-        _______,        _______,        KC_RABK,        _______,        _______,        _______,        _______,
+        _______,        _______,        KC_LCBR,        KC_RCBR,        LSFT(KC_SCLN),  _______,        _______,
+                        KC_CIRC,        KC_EQUAL,       KC_EXLM,        LSFT(KC_BSLS),  KC_AMPR,        KC_DQUO,
+        _______,        _______,        _______,        KC_LABK,        KC_RABK,        _______,        _______,
                                         _______,        _______,        _______,        _______,        _______,
 
                                                                                         _______,        _______,
