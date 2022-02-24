@@ -28,26 +28,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [BASE] = LAYOUT_ergodox(
         // left hand
-        KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,               KC_5,                   _______,
+        KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,               KC_5,                   KC_DOWN,
         KC_LSHIFT,      KC_Q,           KC_W,           KC_F,           KC_P,               KC_B,                   M_CHLG,
         KC_ENT,         KC_A,           KC_R,           KC_S,           KC_T,               KC_G,
-        KC_TAB,         KC_Z,           KC_X,           KC_C,           KC_D,               KC_V,                   KC_RIGHT,
+        KC_TAB,         KC_Z,           KC_X,           KC_C,           KC_D,               KC_V,                   KC_ESC,
                                         KC_LBRACKET,    LT(WIND, KC_RBRACKET),    _______,            KC_LALT,                LT(FN, KC_SPACE),
 
                                                                                                     LT(WIND, KC_LGUI),      KC_SPACE,
                                                                                                                             KC_BSPC,
-                                                                            KC_LCTRL,               KC_ESC,                 KC_DEL,
+                                                                            KC_LCTRL,               KC_LGUI,                 KC_DEL,
 
         // right hand
         _______,            KC_6,           KC_7,               KC_8,           KC_9,           KC_0,           KC_BSLASH,
         _______,            KC_J,           KC_L,               KC_U,           KC_Y,           KC_SCOLON,      KC_BSPACE,
                             KC_M,           KC_N,               KC_E,           KC_I,           KC_O,           KC_QUOTE,
-        KC_LGUI,            KC_K,           KC_H,               KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,
-                                            MO(PROG),           MO(LOCAL),       KC_LEFT,        KC_DOWN,        KC_RIGHT,
+        LGUI(KC_SPACE),     KC_K,           KC_H,               KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,
+                                            MO(PROG),           MO(LOCAL),      LCTL(KC_SLCK),  KC_SLCK,        KC_PAUS,
 
                                                                                                     TG(QWER),               MO(WIND),
                                                                                                                             _______,
-                                                                            _______,                MO(PROG),               KC_LSFT
+                                                                            _______,                MO(PROG),                KC_LSFT
     ),
 
     /**
@@ -165,8 +165,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         KC_AUDIO_VOL_UP,    KC_MEDIA_PREV_TRACK,    KC_MEDIA_PLAY_PAUSE,    KC_MEDIA_NEXT_TRACK,    _______,        _______,        _______,
         KC_AUDIO_VOL_DOWN,  KC_PGUP,                LCTL(KC_LEFT),          KC_UP,                  LCTL(KC_RIGHT), KC_HOME,        _______,
-        LSFT(KC_TAB),       KC_PGDOWN,              KC_LEFT,                KC_DOWN,                KC_RIGHT,       KC_END,
-        _______,            _______,                _______,                _______,                _______,        _______,        _______,
+        _______,            KC_PGDOWN,              KC_LEFT,                KC_DOWN,                KC_RIGHT,       KC_END,
+        LSFT(KC_TAB),            _______,                LGUI(KC_UP),            LGUI(KC_DOWN),          _______,        _______,        _______,
                                                     _______,                _______,                _______,        _______,        _______,
 
                                                                                         _______,        _______,
