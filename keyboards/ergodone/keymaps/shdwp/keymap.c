@@ -6,8 +6,8 @@ enum custom_keycodes {
 };
 
 #define BASE_WIN 100
-#define BASE_MAC 101
-#define BASE BASE_MAC
+#define BASE_MAC 0
+#define BASE 0
 
 #define PROG 1
 #define NUMBERS 2
@@ -57,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**
      *
      *                                                     BASE
-     *
+     */
     [BASE_WIN] = LAYOUT_ergodox(
         // left hand
         KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,               KC_5,                   KC_DOWN,
@@ -81,7 +81,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                                                             _______,
                                                                             _______,                KC_ESC,                 KC_LSFT
     ),
-     */
 
     /**
      *
