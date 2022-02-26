@@ -15,8 +15,8 @@ enum custom_keycodes {
 #define FN 14
 #define WIND 15
 
-#define INTL_MOD LALT(KC_LSFT)
-#define M_CHLG LALT(KC_LSFT)
+#define WIN_CHL LALT(KC_LSFT)
+
 #define MAC_PT SCMD(KC_LBRC)
 #define MAC_NT SCMD(KC_RBRC)
 #define MAC_CHL LGUI(KC_SPACE)
@@ -30,10 +30,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [BASE_MAC] = LAYOUT_ergodox(
         // left hand
-        KC_NUBS,        KC_1,           KC_2,           KC_3,           KC_4,               KC_5,                   KC_ESC,
-        KC_LSHIFT,      KC_Q,           KC_W,           KC_E,           KC_R,               KC_T,                   MAC_NT,
-        KC_ENT,         KC_A,           KC_S,           KC_D,           KC_F,               KC_G,
-        KC_TAB,         KC_GRAVE,       KC_Z,           KC_X,           KC_C,               KC_V,                   MAC_PT,
+        KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,               KC_5,                   KC_ESC,
+        KC_LSHIFT,      KC_Q,           KC_W,           KC_F,           KC_P,               KC_B,                   MAC_NT,
+        KC_ENT,         KC_A,           KC_R,           KC_S,           KC_T,               KC_G,
+        KC_TAB,         KC_Z,           KC_X,           KC_C,           KC_D,               KC_V,                   MAC_PT,
                                         KC_ESC,         _______,        _______,            KC_LALT,                LT(FN, KC_SPACE),
 
                                                                                                    KC_ESC,                  KC_SPACE,
@@ -42,9 +42,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         // right hand
         _______,            KC_6,           KC_7,               KC_8,           KC_9,           KC_0,           KC_BSLASH,
-        MAC_CHL,            KC_Y,           KC_U,               KC_I,           KC_O,           KC_P,           KC_BSPACE,
-                            KC_H,           KC_J,               KC_K,           KC_L,           KC_SCOLON,      KC_QUOTE,
-        MAC_ALF,            KC_N,           KC_M,               KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,
+        MAC_CHL,            KC_J,           KC_L,               KC_U,           KC_Y,           KC_SCOLON,      KC_BSPACE,
+                            KC_M,           KC_N,               KC_E,           KC_I,           KC_O,           KC_QUOTE,
+        MAC_ALF,            KC_K,           KC_H,               KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,
                                             MO(PROG),           MO(LOCAL),      LCTL(KC_SLCK),  KC_SLCK,        KC_PAUS,
 
                                                                                                     TG(QWER),               TG(BASE_WIN),
@@ -58,10 +58,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [BASE_WIN] = LAYOUT_ergodox(
         // left hand
-        KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,               KC_5,                   KC_DOWN,
-        KC_LSHIFT,      KC_Q,           KC_W,           KC_F,           KC_P,               KC_B,                   M_CHLG,
+        KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,               KC_5,                   KC_ESC,
+        KC_LSHIFT,      KC_Q,           KC_W,           KC_F,           KC_P,               KC_B,                   _______,
         KC_ENT,         KC_A,           KC_R,           KC_S,           KC_T,               KC_G,
-        KC_TAB,         KC_Z,           KC_X,           KC_C,           KC_D,               KC_V,                   KC_ESC,
+        KC_TAB,         KC_Z,           KC_X,           KC_C,           KC_D,               KC_V,                   _______,
                                         KC_LBRACKET,    LT(WIND, KC_RBRACKET),              _______,                KC_LALT,                LT(FN, KC_SPACE),
 
                                                                                                     LT(WIND, KC_LGUI),      KC_SPACE,
@@ -70,9 +70,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         // right hand
         _______,            KC_6,           KC_7,               KC_8,           KC_9,           KC_0,           KC_BSLASH,
-        _______,            KC_J,           KC_L,               KC_U,           KC_Y,           KC_SCOLON,      KC_BSPACE,
+        WIN_CHL,            KC_J,           KC_L,               KC_U,           KC_Y,           KC_SCOLON,      KC_BSPACE,
                             KC_M,           KC_N,               KC_E,           KC_I,           KC_O,           KC_QUOTE,
-        LGUI(KC_SPACE),     KC_K,           KC_H,               KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,
+        KC_LGUI,            KC_K,           KC_H,               KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,
                                             MO(PROG),           MO(LOCAL),      LCTL(KC_SLCK),  KC_SLCK,        KC_PAUS,
 
                                                                                                     _______,                _______,
