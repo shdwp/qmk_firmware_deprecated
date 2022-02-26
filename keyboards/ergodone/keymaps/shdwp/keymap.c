@@ -5,16 +5,15 @@ enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
 };
 
-#define BASE_WIN 16
 #define BASE_MAC 0
+#define BASE_WIN 1
+#define QWER 2
 
-#define PROG 1
-#define NUMBERS 2
-#define QWER 3
-#define LOCAL 4
-
-#define FN 12
-#define WIND 13
+#define PROG 10
+#define NUMBERS 11
+#define LOCAL 13
+#define FN 14
+#define WIND 15
 
 #define INTL_MOD LALT(KC_LSFT)
 #define M_CHLG LALT(KC_LSFT)
@@ -65,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
                                                                                                     LT(WIND, KC_LGUI),      KC_SPACE,
                                                                                                                             KC_BSPC,
-                                                                            KC_LGUI,               KC_LCTRL,                KC_DEL,
+                                                                            KC_LCTRL,               KC_LCTRL,                KC_DEL,
 
         // right hand
         _______,            KC_6,           KC_7,               KC_8,           KC_9,           KC_0,           KC_BSLASH,
@@ -74,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LGUI(KC_SPACE),     KC_K,           KC_H,               KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,
                                             MO(PROG),           MO(LOCAL),      LCTL(KC_SLCK),  KC_SLCK,        KC_PAUS,
 
-                                                                                                    TG(QWER),               MO(WIND),
+                                                                                                    _______,                _______,
                                                                                                                             _______,
                                                                             _______,                KC_ESC,                 KC_LSFT
     ),
@@ -283,11 +282,11 @@ void matrix_scan_user(void) {
     uint8_t layer = biton32(layer_state);
     ergodox_board_led_off();
 
-    if ((layer & QWER) != 0) {
+    if ((layer & QWER) == QWER) {
         ergodox_board_led_on();
     }
 
-    if ((layer & BASE_WIN) != 0) {
+    if ((layer & BASE_WIN) == BASE_WIN) {
         ergodox_board_led_on();
     }
 };
