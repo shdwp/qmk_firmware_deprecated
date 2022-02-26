@@ -19,6 +19,7 @@ enum custom_keycodes {
 #define M_CHLG LALT(KC_LSFT)
 #define MAC_PT SCMD(KC_LBRC)
 #define MAC_NT SCMD(KC_RBRC)
+#define MAC_CHL CMD(KC_SPACE)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**
@@ -32,14 +33,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSHIFT,      KC_Q,           KC_W,           KC_E,           KC_R,               KC_T,                   MAC_NT,
         KC_ENT,         KC_A,           KC_S,           KC_D,           KC_F,               KC_G,
         KC_TAB,         KC_GRAVE,       KC_Z,           KC_X,           KC_C,               KC_V,                   MAC_PT,
-                                        KC_B,           _______,        _______,            KC_LALT,                LT(FN, KC_SPACE),
+                                        _______,           _______,        _______,         KC_LALT,                LT(FN, KC_SPACE),
 
                                                                                                    KC_ESC,                  KC_SPACE,
                                                                                                                             KC_DEL,
                                                                             KC_LGUI,               KC_LCTRL,                KC_BSPC,
 
         // right hand
-        _______,            KC_6,           KC_7,               KC_8,           KC_9,           KC_0,           KC_BSLASH,
+        KC_SPACE,           KC_6,           KC_7,               KC_8,           KC_9,           KC_0,           KC_BSLASH,
         _______,            KC_Y,           KC_U,               KC_I,           KC_O,           KC_P,           KC_BSPACE,
                             KC_H,           KC_J,               KC_K,           KC_L,           KC_SCOLON,      KC_QUOTE,
         _______,            KC_N,           KC_M,               KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,
