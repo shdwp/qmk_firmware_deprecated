@@ -5,7 +5,7 @@ enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
 };
 
-#define BASE_WIN 100
+#define BASE_WIN 16
 #define BASE_MAC 0
 #define BASE 0
 
