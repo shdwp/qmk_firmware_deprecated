@@ -195,7 +195,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_AUDIO_VOL_UP,    KC_MEDIA_PREV_TRACK,    KC_MEDIA_PLAY_PAUSE,    KC_MEDIA_NEXT_TRACK,    _______,        _______,        _______,
         KC_AUDIO_VOL_DOWN,  KC_PGUP,                LCTL(KC_LEFT),          KC_UP,                  LCTL(KC_RIGHT), KC_HOME,        _______,
         _______,            KC_PGDOWN,              KC_LEFT,                KC_DOWN,                KC_RIGHT,       KC_END,
-        _______,            _______,                LGUI(KC_UP),            LGUI(KC_DOWN),          LGUI(KC_LBRC),  LGUI(KC_RBRC),  _______,
+        _______,            LGUI(KC_BSPC),          LGUI(KC_UP),            LGUI(KC_DOWN),          LGUI(KC_LBRC),  LGUI(KC_RBRC),  _______,
                                                     _______,                _______,                _______,        _______,        _______,
 
                                                                                         _______,        _______,
