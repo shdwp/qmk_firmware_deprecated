@@ -40,8 +40,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                             KC_LGUI,               KC_LCTRL,                KC_BSPC,
 
         // right hand
-        KC_SPACE,           KC_6,           KC_7,               KC_8,           KC_9,           KC_0,           KC_BSLASH,
-        _______,            KC_Y,           KC_U,               KC_I,           KC_O,           KC_P,           KC_BSPACE,
+        _______,            KC_6,           KC_7,               KC_8,           KC_9,           KC_0,           KC_BSLASH,
+        KC_SPACE,           KC_Y,           KC_U,               KC_I,           KC_O,           KC_P,           KC_BSPACE,
                             KC_H,           KC_J,               KC_K,           KC_L,           KC_SCOLON,      KC_QUOTE,
         _______,            KC_N,           KC_M,               KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,
                                             MO(PROG),           MO(LOCAL),      LCTL(KC_SLCK),  KC_SLCK,        KC_PAUS,
