@@ -28,13 +28,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [BASE_MAC] = LAYOUT_ergodox(
         // left hand
-        KC_NUBS,        KC_1,           KC_2,           KC_3,           KC_4,               KC_5,                   KC_DOWN,
-        KC_LSHIFT,      KC_Q,           KC_W,           KC_E,           KC_R,               KC_T,                   KC_ESC,
+        KC_NUBS,        KC_1,           KC_2,           KC_3,           KC_4,               KC_5,                   KC_ESC,
+        KC_LSHIFT,      KC_Q,           KC_W,           KC_E,           KC_R,               KC_T,                   MAC_NT,
         KC_ENT,         KC_A,           KC_S,           KC_D,           KC_F,               KC_G,
-        KC_TAB,         KC_GRAVE,       KC_Z,           KC_X,           KC_C,               KC_V,                   KC_B,
-                                        MAC_PT,         MAC_NT,        _______,            KC_LALT,                LT(FN, KC_SPACE),
+        KC_TAB,         KC_GRAVE,       KC_Z,           KC_X,           KC_C,               KC_V,                   MAC_PT,
+                                        KC_B,           _______,        _______,            KC_LALT,                LT(FN, KC_SPACE),
 
-                                                                                                   _______,                 KC_SPACE,
+                                                                                                   KC_ESC,                  KC_SPACE,
                                                                                                                             KC_DEL,
                                                                             KC_LGUI,               KC_LCTRL,                KC_BSPC,
 
