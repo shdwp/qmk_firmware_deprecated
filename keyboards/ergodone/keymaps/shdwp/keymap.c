@@ -3,6 +3,8 @@
 
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
+
+  MAC_CHLG,
 };
 
 #define BASE_MAC 0
@@ -42,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         // right hand
         _______,            KC_6,           KC_7,               KC_8,           KC_9,           KC_0,           KC_BSLASH,
-        KC_SPACE,           KC_Y,           KC_U,               KC_I,           KC_O,           KC_P,           KC_BSPACE,
+        MAC_CHLG,           KC_Y,           KC_U,               KC_I,           KC_O,           KC_P,           KC_BSPACE,
                             KC_H,           KC_J,               KC_K,           KC_L,           KC_SCOLON,      KC_QUOTE,
         MAC_ALF,            KC_N,           KC_M,               KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,
                                             MO(PROG),           KC_RALT,        LCTL(KC_SLCK),  KC_SLCK,        KC_PAUS,
@@ -273,6 +275,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (keycode == MAC_CHLG) {
+    bool mod_pressed = get_mods() & MOD_MASK_GUI;
+
+    if (mod_pressed) {
+      if (record->event.pressed) {
+        register_code(KC_SPACE);
+      } else {
+        unregister_code(KC_SPACE);
+      }
+    } else {
+      if (record->event.pressed) {
+        register_code(KC_LGUI);
+        register_code(KC_SPACE);
+      } else {
+        unregister_code(KC_LGUI);
+        unregister_code(KC_SPACE);
+      }
+    }
+  }
   return true;
 }
 
