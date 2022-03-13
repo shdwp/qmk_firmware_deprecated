@@ -286,11 +286,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
     } else {
       if (record->event.pressed) {
-        register_code(KC_LGUI);
-        register_code(KC_SPACE);
-      } else {
-        unregister_code(KC_LGUI);
-        unregister_code(KC_SPACE);
+          register_code(KC_LGUI);
+          tap_code_delay(KC_SPACE, 72);
+          unregister_code(KC_LGUI);
       }
     }
   }
