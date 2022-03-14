@@ -178,7 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         // right hand
         _______,        _______,        _______,        _______,        _______,        _______,        _______,
-        _______,        _______,        KC_LCBR,        KC_RCBR,        _______,        LSFT(KC_SCLN),  _______,
+        _______,        _______,        KC_LCBR,        KC_RCBR,        _______,        LSFT(KC_P),     _______,
                         KC_CIRC,        KC_EQUAL,       KC_EXLM,        LSFT(KC_BSLS),  KC_AMPR,        KC_DQUO,
         _______,        _______,        _______,        KC_LABK,        KC_RABK,        _______,        _______,
                                         _______,        _______,        _______,        _______,        _______,
