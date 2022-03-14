@@ -21,8 +21,7 @@ enum custom_keycodes {
 
 #define MAC_PT SCMD(KC_LBRC)
 #define MAC_NT SCMD(KC_RBRC)
-#define MAC_CHL LGUI(KC_SPACE)
-#define MAC_ALF LCTL(KC_SPACE)
+#define MAC_ALF LGUI(KC_SPACE)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**
@@ -276,7 +275,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (keycode == MAC_CHLG) {
-    bool mod_pressed = get_mods() & MOD_MASK_GUI;
+    bool mod_pressed = get_mods() & MOD_MASK_CTRL;
 
     if (mod_pressed) {
       if (record->event.pressed) {
@@ -286,9 +285,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
     } else {
       if (record->event.pressed) {
-          register_code(KC_LGUI);
+          register_code(KC_LCTRL);
           tap_code_delay(KC_SPACE, 72);
-          unregister_code(KC_LGUI);
+          unregister_code(KC_LCTRL);
       }
     }
   }
