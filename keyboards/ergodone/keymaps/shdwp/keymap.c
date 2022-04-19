@@ -286,7 +286,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     } else {
       if (record->event.pressed) {
           register_code(KC_LCTRL);
-          tap_code_delay(KC_SPACE, 144);
+          tap_code_delay(KC_SPACE, 192);
           unregister_code(KC_LCTRL);
       }
     }
