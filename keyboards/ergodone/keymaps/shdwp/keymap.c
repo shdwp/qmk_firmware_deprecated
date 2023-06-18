@@ -69,14 +69,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
                                                                                                     LT(WIND, KC_LGUI),      KC_SPACE,
                                                                                                                             KC_BSPC,
-                                                                            KC_LCTRL,               KC_ESC,                 KC_DEL,
+                                                                            KC_LCTRL,               MT(MOD_LCTL, KC_ESC),   KC_DEL,
 
         // right hand
         _______,            KC_6,           KC_7,               KC_8,           KC_9,           KC_0,           KC_BSLASH,
         WIN_CHL,            KC_J,           KC_L,               KC_U,           KC_Y,           KC_SCOLON,      KC_BSPACE,
                             KC_M,           KC_N,               KC_E,           KC_I,           KC_O,           KC_QUOTE,
         KC_LGUI,            KC_K,           KC_H,               KC_COMMA,       KC_DOT,         KC_SLASH,       KC_MINUS,
-                                            MO(PROG),           MO(LOCAL),      LCTL(KC_SLCK),  KC_SLCK,        KC_PAUS,
+                                            MO(PROG),           RALT(KC_LCTRL), LCTL(KC_SLCK),  KC_SLCK,        KC_PAUS,
 
                                                                                                     _______,                _______,
                                                                                                                             _______,
