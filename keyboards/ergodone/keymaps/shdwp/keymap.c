@@ -69,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
                                                                                                     LT(WIND, KC_LGUI),      KC_SPACE,
                                                                                                                             KC_BSPC,
-                                                                            KC_LCTRL,               MT(MOD_LCTL, KC_ESC),   KC_DEL,
+                                                                            KC_LCTRL,               KC_ESC,     KC_DEL,
 
         // right hand
         _______,            KC_6,           KC_7,               KC_8,           KC_9,           KC_0,           KC_BSLASH,
